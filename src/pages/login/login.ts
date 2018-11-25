@@ -2,14 +2,15 @@ import { MenuPage } from './../menu/menu';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { EventEmitter } from 'events';
-import { IonicPage, MenuController, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, NavParams, List } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 import { ExerciciosPage } from '../exercicios/exercicios';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, AngularFireList,} from 'angularfire2/database';
-
+import {UsuarioServiceProvider} from '../../providers/usuario-service/usuario-service';
+import { from } from 'rxjs';
 
 /**
  * Generated class for the LoginPage page.
@@ -18,12 +19,19 @@ import { AngularFireDatabase, AngularFireList,} from 'angularfire2/database';
  * Ionic pages and navigation.
  */
 
+
+export class Exercicio{
+  exercicio: string;
+  tempo: string;
+}
+
 export class Usuario{
   id: number;
   nome: string;
   email: string;
   login: boolean;
   senha: string;
+  exercicios: Array<Exercicio>;
 }
 
 @IonicPage()
@@ -36,7 +44,7 @@ export class LoginPage {
   lista: AngularFireList<any>;
   usuario: Usuario;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController,private fb: Facebook,private fire: AngularFireAuth,public af: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController,private fb: Facebook,private fire: AngularFireAuth,public af: AngularFireDatabase, public service : UsuarioServiceProvider) {
     this.lista = this.af.list('/usuarios');
     this.usuario = new Usuario();
   }
@@ -53,41 +61,37 @@ export class LoginPage {
   Entrar(){
     this.navCtrl.setRoot(MenuPage);
   }
-
-  cadastrar(usuario){
-    this.lista.set(usuario.id, usuario).then(() => {
-     // this.usuario = new Usuario();
-    });
-  }
-
-  
+    
   loginFb(){
 
-    this.fb.login(['public_profile', 'user_photos', 'email', 'user_birthday'])
-       .then( response => {
-         const facebookCredential = firebase.auth.FacebookAuthProvider
-           .credential(response.authResponse.accessToken);
+     this.service.loginFb();
+
+     alert("Dentro do Login" +JSON.stringify(this.service.buscarUsuarioLogado()));
+
    
-         firebase.auth().signInAndRetrieveDataWithCredential(facebookCredential)
-           .then( success => { 
-             let userAtual;
-             let usuario = new Usuario();
-             usuario.nome = success.additionalUserInfo.profile["name"];
-             usuario.email = success.additionalUserInfo.profile["email"];
-             usuario.id = success.additionalUserInfo.profile["id"];
-             firebase.database().ref('usuarios/' + usuario.id)
-                            .once('value')        
-                            .then(snapshot => snapshot.val())    
-                            .then(user => userAtual = user);
-             if(userAtual){
-              this.usuario = usuario;
-            }else {
-              this.cadastrar(usuario);
-            }
-             //alert("Login Efetuado com sucesso: " + JSON.stringify(success.additionalUserInfo.profile)); 
-           });
+    // this.fb.login(['public_profile', 'user_photos', 'email', 'user_birthday'])
+    //    .then( response => {
+    //      const facebookCredential = firebase.auth.FacebookAuthProvider
+    //        .credential(response.authResponse.accessToken);
    
-       }).catch((error) => { console.log(JSON.stringify(error)) });
+    //      firebase.auth().signInAndRetrieveDataWithCredential(facebookCredential)
+    //        .then( success => { 
+    //          let userAtual;
+    //          let usuario = new Usuario();
+    //          usuario.nome = success.additionalUserInfo.profile["name"];
+    //          usuario.email = success.additionalUserInfo.profile["email"];
+    //          usuario.id = success.additionalUserInfo.profile["id"];
+    //         this.service.usuarioCadastrado(usuario.id).then(us =>{
+    //           this.usuario=us;
+    //         });
+
+    //         //alert("pedacaozera"+JSON.stringify(this.usuario));
+
+    //          //alert("Login Efetuado com sucesso: " + JSON.stringify(success.additionalUserInfo.profile)); 
+    //        });
+   
+    //    }).catch((error) => { console.log(JSON.stringify(error)) });
+
        this.Entrar()
    }  
 

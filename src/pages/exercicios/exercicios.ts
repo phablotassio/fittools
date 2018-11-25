@@ -31,6 +31,7 @@ export class ExerciciosPage {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
@@ -39,6 +40,7 @@ export class ExerciciosPage {
   teste(){
     this.navCtrl.setRoot(HomePage);
   }
+
 
   comecarTreino(){
     this.navCtrl.push(HomePage);

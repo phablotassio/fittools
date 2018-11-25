@@ -26,6 +26,7 @@ import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResul
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { UsuarioServiceProvider } from '../providers/usuario-service/usuario-service';
 
 
 var config = {apiKey: "AIzaSyAFiFT-xP6QdEYW3dk8YGtS_WyOOsyvEWk",
@@ -73,7 +74,8 @@ messagingSenderId: "765478438287"};
     Geolocation,
     Facebook,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UsuarioServiceProvider
   ]
 })
 export class AppModule {}

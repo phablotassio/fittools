@@ -12,6 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+
 @IonicPage()
 @Component({
   selector: 'page-cronometro',
@@ -120,7 +121,7 @@ export class CronometroPage {
   }
 
   abreResultado(){
-    this.navCtrl.push(ResultadoPage);
+    this.navCtrl.push(ResultadoPage, {exercicio : this.exercicio,  tempo : CronometroPage.tempo});
   }
   voltar(){
     this.navCtrl.pop();
