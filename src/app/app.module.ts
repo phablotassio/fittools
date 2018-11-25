@@ -1,3 +1,4 @@
+import { CadastroPage } from './../pages/cadastro/cadastro';
 import { CronometroInicioPage } from './../pages/cronometro-inicio/cronometro-inicio';
 import { CronometroPageModule } from './../pages/cronometro/cronometro.module';
 import { MenuPageModule } from './../pages/menu/menu.module';
@@ -43,7 +44,7 @@ messagingSenderId: "765478438287"};
     HomePage,
     CronometroPage,
     ResultadoPage,
-    CronometroInicioPage,
+    CronometroInicioPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,7 @@ messagingSenderId: "765478438287"};
     ExerciciosPageModule,
     MenuPageModule,
     LoginPageModule,
-    SobrePageModule,
+    SobrePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,6 +68,7 @@ messagingSenderId: "765478438287"};
     ResultadoPage,
     MenuPage,
     CronometroInicioPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,

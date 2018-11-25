@@ -1,3 +1,4 @@
+import { CadastroPage } from './../cadastro/cadastro';
 import { MenuPage } from './../menu/menu';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -95,6 +96,8 @@ export class LoginPage {
        this.Entrar()
    }  
 
-   
+   abreCadastrar(){
+    this.navCtrl.push(CadastroPage);
+   }   
 
 }

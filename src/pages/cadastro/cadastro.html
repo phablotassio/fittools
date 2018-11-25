@@ -1,0 +1,22 @@
+<ion-content padding>
+  <img  style="width: 50px; height: 50px;" src="assets/imgs/voltar.png" (click)="voltar()" />
+  <form [formGroup]="sprintForm" (submit)="fCadastrar()" novalidate>
+    <ion-item  class="inputs">
+      <ion-label floating color="dark">Nome</ion-label>
+      <ion-input formControlName="fNome" [(ngModel)]="nome" color="secondary">
+      </ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label floating color="dark">E-mail</ion-label>
+      <ion-input type="email" formControlName="fEmail" [(ngModel)]="email" color="secondary">
+      </ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label floating color="dark">Senha</ion-label>
+      <ion-input type="password" formControlName="fSenha" [(ngModel)]="senha" color="secondary">
+      </ion-input>
+    </ion-item>
+    <br><br>
+    <button ion-button block outline style="color:black;border-color: black">Cadastrar</button>
+  </form>
+</ion-content>
