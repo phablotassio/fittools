@@ -44,7 +44,7 @@ export class ExerciciosPage {
     this.navCtrl.push(HomePage);
   }
 
-  abreTreino(item:any){
+  abreTreino(item:string){
     this.navCtrl.push(CronometroPage,{exercicio:item});
   }
 voltar(){

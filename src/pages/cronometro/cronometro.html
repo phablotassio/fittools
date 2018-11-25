@@ -8,12 +8,13 @@
 
 
 <ion-content padding>
-    <img  style="width: 50px; height: 50px;" src="assets/imgs/voltar.png" (click)="voltar()" />
-
-  <p style="text-align: center;font-size: 67px">{{ tempo }}</p>
-  <br><br><br><br>
-  <button ion-button block outline (click)="start()" [disabled]="!isenabled" style="color:black;border-color: black">Começar</button>
-  <button ion-button block outline (click)="pause()" [disabled]="isenabled" style="color:black;border-color:black">{{acao}}</button>
-  <button ion-button block outline (click)="stopAndClean()" style="color:black;border-color: black">Parar e Zerar</button>
-  <button ion-button block outline (click)="abreResultado()" style="color:black;border-color: black">Salvar</button>
+  <img  style="width: 50px; height: 50px;" src="assets/imgs/voltar.png" (click)="voltar()" />
+<p style="text-align: center;font-size: 67px">{{ tempo }}</p>
+<h4 style="text-align:center">Exercício sendo realizado:</h4>
+<h1 style="text-align:center">{{ exercicio }}</h1>
+<br><br><br><br>
+<button ion-button block outline (click)="start()" [disabled]="!isenabled" style="color:black;border-color: black">Começar</button>
+<button ion-button block outline (click)="pause()" [disabled]="isenabled" style="color:black;border-color:black">{{acao}}</button>
+<button ion-button block outline (click)="stopAndClean()" style="color:black;border-color: black">Parar e Zerar</button>
+<button ion-button block outline (click)="abreResultado()" style="color:black;border-color: black">Salvar</button>
 </ion-content>
