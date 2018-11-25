@@ -1,0 +1,36 @@
+<ion-content>
+
+  <div class="img-login">
+      <img src="assets/imgs/login.png"/>
+  </div>
+  
+  
+  <ion-item class="inputs"> 
+    <ion-label floating color="dark">Email</ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+
+  <ion-item class="inputs">
+    <ion-label floating color="dark">Senha</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+
+    
+  <button class="botoes" ion-button round color="dark" (click)='loginFacebook();'>
+      ENTRAR
+  </button>
+  
+  <button class="botoes" ion-button round icon-left color="dark" (click)="loginFb();">
+      <ion-icon name="logo-facebook"></ion-icon>Login com Facebook
+  </button>
+
+
+
+</ion-content>
+
+<!-- <ion-footer>
+  <img  src="assets/imgs/tw.png" style="width: 30px; height: 30p;margin-right: 7%"  (click)="Entrar()"/>
+  <img  src="assets/imgs/fb.png" style="width: 30px; height: 30p;"  (click)="loginFb()"/>
+  <img  src="assets/imgs/gm.png" style="width: 30px; height: 30p;margin-left: 7%"  (click)="Entrar()"/>
+</ion-footer> -->

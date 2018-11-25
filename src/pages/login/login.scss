@@ -1,0 +1,50 @@
+page-login {
+  *{
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+
+  }
+
+  .scroll-content {
+    padding-bottom: 0 !important;
+ }
+
+ .alignme {
+  text-align: right;
+  margin-right: 7%;
+ }
+
+.alignme a {
+  text-decoration: none;
+  color: black !important;
+ }
+ 
+  .img-login{
+    margin: 15% 35% 10% 35%;
+    width: 30%; 
+    height: 30%;
+    
+  }
+  .inputs {
+    background: #00f35b;
+    margin: 4%;
+  }
+
+  .botoes{
+    margin: 2%;
+    
+  }
+
+  background: #00f35b !important;
+
+  ion-content{
+    background: #00f35b !important;
+    text-align: center;
+    padding: 2%;
+
+  }
+  ion-footer{
+    text-align: center;
+    margin: 4%;
+  }
+}

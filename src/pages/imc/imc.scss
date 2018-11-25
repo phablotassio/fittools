@@ -1,0 +1,24 @@
+page-imc {
+  *{
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+
+  }
+  background: #00f35b !important;
+  ion-content{
+    background: #00f35b !important;
+  }
+  ion-label{
+    background: #00f35b !important;
+    background-color: black;
+
+  }
+  ion-item{
+
+    background: #00f35b !important;
+  }
+ion-card{
+  background: #00f35b !important;
+  border-color: black;
+}
+}

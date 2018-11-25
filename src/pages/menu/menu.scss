@@ -1,0 +1,23 @@
+page-menu {
+  ion-content{
+    background: #00f35b !important;
+  }
+  ion-header{
+    background: #00f35b !important;
+  }
+  .card-title {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    font-size: 1.0em;
+    width: 100%;
+    font-weight: bold;
+    color:black;
+  }
+  ion-card {
+    position: relative;
+    text-align: center;
+
+  }
+
+}
