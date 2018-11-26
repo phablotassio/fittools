@@ -62,12 +62,16 @@ export class LoginPage {
   Entrar(){
     this.navCtrl.setRoot(MenuPage);
   }
+
+  getDadosUsuario(){
+    this.usuario=this.service.buscarUsuarioLogado();
+    alert(JSON.stringify(this.usuario));
+  }
     
   loginFb(){
 
      this.service.loginFb();
-
-     alert("Dentro do Login" +JSON.stringify(this.service.buscarUsuarioLogado()));
+     //alert("Dentro do Login" +JSON.stringify(this.service.buscarUsuarioLogado()));
 
    
     // this.fb.login(['public_profile', 'user_photos', 'email', 'user_birthday'])
